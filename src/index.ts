@@ -61,7 +61,9 @@ let isRunning = true;
 let displayMode: HudDisplayMode =
   process.env.CODEX_HUD_MODE === 'overview' ? 'overview' : 'single';
 
-const TOGGLE_KEYS = ['\u0014', 't', 'T']; // Ctrl+T or t/T
+// The HUD stays in the full single-session view so status data is never hidden
+// behind a keyboard toggle.
+const TOGGLE_KEYS: string[] = [];
 
 function getNonCachedInputTokens(usage: TokenUsage | undefined): number {
   if (!usage) {

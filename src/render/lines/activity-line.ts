@@ -262,13 +262,7 @@ function renderContextProgressBar(percent: number, width: number = 10): string {
   const emptyChar = '░';
   
   let colorFn: (s: string) => string;
-  if (clamped >= 85) {
-    colorFn = theme.error;
-  } else if (clamped >= 70) {
-    colorFn = theme.warning;
-  } else {
-    colorFn = theme.success;
-  }
+  colorFn = theme.contextSafe;
   
   const filledStr = filledChar.repeat(filled);
   const emptyStr = emptyChar.repeat(empty);
@@ -300,11 +294,7 @@ export function renderTokenLine(data: HudData): string | null {
   const ctx = data.contextUsage;
   if (ctx) {
     const bar = renderContextProgressBar(ctx.percent, 12);
-    const percentDisplay = ctx.percent >= 85 
-      ? theme.error(`${ctx.percent}%`)
-      : ctx.percent >= 70 
-        ? theme.warning(`${ctx.percent}%`) 
-        : theme.success(`${ctx.percent}%`);
+    const percentDisplay = theme.contextSafe(`${ctx.percent}%`);
     parts.unshift(
       `Ctx: ${bar} ${percentDisplay} (${formatTokenCount(ctx.used)}/${formatTokenCount(ctx.total)})`
     );
@@ -313,11 +303,7 @@ export function renderTokenLine(data: HudData): string | null {
     const totalTokens = usage.total_tokens ?? 0;
     const percent = total > 0 ? Math.round((totalTokens / total) * 100) : 0;
     const bar = renderContextProgressBar(percent, 12);
-    const percentDisplay = percent >= 85 
-      ? theme.error(`${percent}%`)
-      : percent >= 70 
-        ? theme.warning(`${percent}%`) 
-        : theme.success(`${percent}%`);
+    const percentDisplay = theme.contextSafe(`${percent}%`);
     parts.unshift(
       `Ctx: ${bar} ${percentDisplay} (${formatTokenCount(totalTokens)}/${formatTokenCount(total)})`
     );

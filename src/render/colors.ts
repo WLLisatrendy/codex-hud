@@ -7,6 +7,8 @@
 const ESC = '\x1b[';
 const RESET = `${ESC}0m`;
 const DIM = `${ESC}2m`;
+const PINK = (text: string) => `${ESC}38;2;214;111;134m${text}${RESET}`;
+const INHERIT = (text: string) => text;
 const ANSI_ESCAPE = '\x1b';
 const ANSI_BEL = '\x07';
 const ANSI_C1_STRING_TERMINATOR = '\x9c';
@@ -397,60 +399,60 @@ export const colors = {
 // Semantic aliases for HUD components (claude-hud style)
 export const theme = {
   // Model and primary info
-  model: colors.brightCyan,
-  modelBracket: colors.cyan,
+  model: INHERIT,
+  modelBracket: INHERIT,
   
   // Git status (oh-my-zsh style)
-  gitBranch: colors.magenta,
-  gitClean: colors.green,
-  gitDirty: colors.yellow,
-  gitAhead: colors.green,
-  gitBehind: colors.red,
-  gitPrefix: colors.magenta,  // "git:(" prefix
+  gitBranch: INHERIT,
+  gitClean: INHERIT,
+  gitDirty: INHERIT,
+  gitAhead: INHERIT,
+  gitBehind: INHERIT,
+  gitPrefix: INHERIT,  // "git:(" prefix
   
   // Project info
-  projectName: colors.yellow,  // Changed to yellow like claude-hud
-  projectPath: colors.dim,
+  projectName: INHERIT,
+  projectPath: INHERIT,
   
   // Status indicators
-  success: colors.green,
-  warning: colors.yellow,
-  error: colors.red,
-  info: colors.cyan,
+  success: INHERIT,
+  warning: INHERIT,
+  error: INHERIT,
+  info: INHERIT,
   
   // Separators and decorations
-  separator: colors.dim,
-  label: colors.dim,
-  value: colors.white,
-  dim: colors.dim,
+  separator: INHERIT,
+  label: INHERIT,
+  value: INHERIT,
+  dim: INHERIT,
   
   // Context bar colors (based on percentage)
-  contextSafe: colors.green,      // < 70%
-  contextWarning: colors.yellow,  // 70-84%
-  contextDanger: colors.red,      // >= 85%
+  contextSafe: PINK,
+  contextWarning: PINK,
+  contextDanger: PINK,
   
   // Tool activity
-  toolRunning: colors.brightYellow,
-  toolCompleted: colors.green,
-  toolError: colors.red,
-  toolName: colors.cyan,
-  toolTarget: colors.dim,
+  toolRunning: INHERIT,
+  toolCompleted: INHERIT,
+  toolError: INHERIT,
+  toolName: INHERIT,
+  toolTarget: INHERIT,
   
   // Agent activity
-  agentType: colors.brightMagenta,
-  agentRunning: colors.brightYellow,
-  agentCompleted: colors.green,
+  agentType: INHERIT,
+  agentRunning: INHERIT,
+  agentCompleted: INHERIT,
   
   // Plan/Todo progress
-  planProgress: colors.brightMagenta,
-  planStepCompleted: colors.green,
-  planStepPending: colors.dim,
-  planStepInProgress: colors.yellow,
+  planProgress: INHERIT,
+  planStepCompleted: INHERIT,
+  planStepPending: INHERIT,
+  planStepInProgress: INHERIT,
   
   // Token usage
-  tokenCount: colors.brightBlue,
-  tokenWarning: colors.yellow,
-  tokenDanger: colors.red,
+  tokenCount: INHERIT,
+  tokenWarning: INHERIT,
+  tokenDanger: INHERIT,
 };
 
 // Progress bar characters

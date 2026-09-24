@@ -17,29 +17,8 @@ const HIDE_CURSOR = '\x1b[?25l';
 const SHOW_CURSOR = '\x1b[?25h';
 
 let lastStdoutFrame: string | null = null;
-const STATUS_HINT = 'Ctrl+T: Toggle • Drag: Resize';
-
 function applyStatusHint(lines: string[], width: number): string[] {
-  if (lines.length === 0 || width <= 0) {
-    return lines;
-  }
-
-  const status = colors.dim(STATUS_HINT);
-  const statusLen = visualLength(status);
-  if (statusLen + 1 > width) {
-    return lines;
-  }
-
-  const firstLine = lines[0] ?? '';
-  const firstLen = visualLength(firstLine);
-  if (firstLen + 1 + statusLen > width) {
-    return lines;
-  }
-
-  const padded = padEnd(firstLine, width - statusLen - 1);
-  const nextLines = [...lines];
-  nextLines[0] = `${padded} ${status}`;
-  return nextLines;
+  return lines;
 }
 
 /**

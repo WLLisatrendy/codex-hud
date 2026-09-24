@@ -24,7 +24,7 @@ set -e
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HUD_DIR="$(dirname "$SCRIPT_DIR")"
-HUD_HEIGHT="${CODEX_HUD_HEIGHT:-}"
+HUD_HEIGHT="${CODEX_HUD_HEIGHT:-12}"
 HUD_POSITION="${CODEX_HUD_POSITION:-bottom}"
 ALIAS_MARKER="# codex-hud alias"
 # Keep provider classification and compatibility selectors in one table. Adding
@@ -1167,6 +1167,11 @@ create_session() {
     tmux set-option -t "$SESSION_NAME" assume-paste-time 0
     tmux set-option -t "$SESSION_NAME" repeat-time 0
     tmux set-option -t "$SESSION_NAME" history-limit 200000
+    # Keep tmux chrome transparent so Ghostty remains the source of truth for
+    # the terminal background, foreground, and palette.
+    tmux set-option -t "$SESSION_NAME" status off
+    tmux set-option -t "$SESSION_NAME" pane-border-style 'fg=default,bg=default'
+    tmux set-option -t "$SESSION_NAME" pane-active-border-style 'fg=default,bg=default'
 
     local alternate_screen
     alternate_screen=$(resolve_alternate_screen_setting) || exit 1
