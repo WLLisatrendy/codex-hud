@@ -196,8 +196,8 @@ upgrade.
 | Variable                 | Default  | Description                                                                     |
 | ------------------------ | -------- | ------------------------------------------------------------------------------- |
 | `CODEX_HUD_POSITION`     | `bottom` | HUD pane position (`top` / `bottom`)                                            |
-| `CODEX_HUD_HEIGHT`       | 5 lines  | HUD height in lines                                                             |
-| `CODEX_HUD_MOUSE`        | `1`      | Enable mouse/trackpad scrolling                                                 |
+| `CODEX_HUD_HEIGHT`       | 6 lines  | HUD height in lines                                                             |
+| `CODEX_HUD_MOUSE`        | `0`      | Enable tmux mouse/trackpad scrolling                                             |
 | `CODEX_HUD_UPDATE_CHECK` | enabled  | Check formal GitHub releases and offer a deferred update (`0`/`false` disables) |
 
 <details>

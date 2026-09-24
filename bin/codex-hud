@@ -5,7 +5,7 @@
 #
 # Environment variables:
 #   CODEX_HUD_POSITION - HUD pane position: bottom (default), top
-#   CODEX_HUD_HEIGHT   - HUD pane height in lines (default: 5)
+#   CODEX_HUD_HEIGHT   - HUD pane height in lines (default: 6)
 #   CODEX_HUD_HEIGHT_AUTO - Auto-adjust HUD height based on pane width (default: 0)
 #   CODEX_HUD_HEIGHT_MIN - Minimum HUD height when auto-adjusting (default: CODEX_HUD_HEIGHT)
 #   CODEX_HUD_HEIGHT_MAX - Maximum HUD height when auto-adjusting (default: 12)
@@ -24,7 +24,7 @@ set -e
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HUD_DIR="$(dirname "$SCRIPT_DIR")"
-HUD_HEIGHT="${CODEX_HUD_HEIGHT:-12}"
+HUD_HEIGHT="${CODEX_HUD_HEIGHT:-6}"
 HUD_POSITION="${CODEX_HUD_POSITION:-bottom}"
 ALIAS_MARKER="# codex-hud alias"
 # Keep provider classification and compatibility selectors in one table. Adding
@@ -1092,7 +1092,7 @@ resolve_hud_height() {
         return 0
     fi
     
-    local desired=5
+    local desired=6
     if [[ "$desired" -lt "$min_height" ]]; then
         desired="$min_height"
     fi
@@ -1365,7 +1365,7 @@ Options:
 
 Environment Variables:
   CODEX_HUD_POSITION  HUD pane position: bottom (default), top
-  CODEX_HUD_HEIGHT    HUD pane height in lines (default: 5)
+  CODEX_HUD_HEIGHT    HUD pane height in lines (default: 6)
   CODEX_HUD_HEIGHT_AUTO Auto-adjust HUD height based on pane width (default: 0)
   CODEX_HUD_HEIGHT_MIN Minimum HUD height when auto-adjusting (default: CODEX_HUD_HEIGHT)
   CODEX_HUD_HEIGHT_MAX Maximum HUD height when auto-adjusting (default: 12)

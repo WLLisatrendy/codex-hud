@@ -171,8 +171,8 @@ codex-hud --self-check       # 运行环境诊断
 | 变量                     | 默认值   | 说明                                                               |
 | ------------------------ | -------- | ------------------------------------------------------------------ |
 | `CODEX_HUD_POSITION`     | `bottom` | HUD 面板位置（`top` / `bottom`）                                   |
-| `CODEX_HUD_HEIGHT`       | 5 行     | HUD 高度（行数）                                                   |
-| `CODEX_HUD_MOUSE`        | `1`      | 启用鼠标/触控板滚动                                                |
+| `CODEX_HUD_HEIGHT`       | 6 行     | HUD 高度（行数）                                                   |
+| `CODEX_HUD_MOUSE`        | `0`      | 启用 tmux 鼠标/触控板滚动                                          |
 | `CODEX_HUD_UPDATE_CHECK` | 启用     | 检查 GitHub 正式 Release 并提供延后更新（设为 `0`/`false` 可禁用） |
 
 <details>
