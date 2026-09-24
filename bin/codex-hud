@@ -12,7 +12,7 @@
 #   CODEX_HUD_AUTO_ATTACH - If set to true, auto-attach to existing session
 #   CODEX_HUD_NO_ATTACH - Deprecated: if set to true, do not attach to existing session
 #   CODEX_HUD_ALTERNATE_SCREEN - Use alternate screen in codex pane (default: 0)
-#   CODEX_HUD_MOUSE - Enable tmux mouse mode for this session (default: 1)
+#   CODEX_HUD_MOUSE - Enable tmux mouse mode for this session (default: 0)
 #   CODEX_HUD_BIND_TOGGLE - Install the legacy server-wide Prefix+H toggle (default: 0)
 #   CODEX_HUD_CLEAR_SCROLLBACK - If set to 1, clears tmux scrollback on first render
 #   CODEX_HUD_SQLITE_ISOLATION - Use a launch-scoped SQLite home (default: 0)
@@ -1154,7 +1154,7 @@ create_session() {
     register_update_session "$cwd"
     # Keep wheel scrolling available in Codex pane by default.
     local mouse_setting
-    mouse_setting=$(parse_boolean_setting "CODEX_HUD_MOUSE" "${CODEX_HUD_MOUSE:-}" "1") || exit 1
+    mouse_setting=$(parse_boolean_setting "CODEX_HUD_MOUSE" "${CODEX_HUD_MOUSE:-}" "0") || exit 1
 
     if [[ "$mouse_setting" == "1" ]]; then
         tmux set-option -t "$SESSION_NAME" mouse on
@@ -1172,6 +1172,7 @@ create_session() {
     tmux set-option -t "$SESSION_NAME" status off
     tmux set-option -t "$SESSION_NAME" pane-border-style 'fg=default,bg=default'
     tmux set-option -t "$SESSION_NAME" pane-active-border-style 'fg=default,bg=default'
+    tmux set-window-option -t "$SESSION_NAME" mode-style 'fg=#17364D,bg=#FFD6E7'
 
     local alternate_screen
     alternate_screen=$(resolve_alternate_screen_setting) || exit 1
