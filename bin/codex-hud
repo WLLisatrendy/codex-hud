@@ -1372,7 +1372,7 @@ Environment Variables:
   CODEX_HUD_AUTO_ATTACH Auto-attach to latest existing session (default: 0)
   CODEX_HUD_NO_ATTACH Deprecated: force new session (overrides auto attach)
   CODEX_HUD_ALTERNATE_SCREEN Use alternate screen in codex pane (default: 0)
-  CODEX_HUD_MOUSE Enable tmux mouse mode for this session (default: 1)
+  CODEX_HUD_MOUSE Enable tmux mouse mode for this session (default: 0)
   CODEX_HUD_BIND_TOGGLE Install the legacy server-wide Prefix+H toggle (default: 0)
   CODEX_HUD_CLEAR_SCROLLBACK Clear terminal scrollback on first render (default: 0)
   CODEX_HUD_SQLITE_ISOLATION Use a launch-scoped SQLite home (default: 0)
